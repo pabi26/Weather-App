@@ -24,7 +24,10 @@ function getWeather(city) {
 function displayWeather(weather) {
   const city = weather.name;
   const country = weather.sys.country;
-  const temp = weather.main.temp;
+  const temp = weather.main.feels_like;
+  const feelsLike = weather.main.temp;
+  const dailyMax = weather.main.temp_max;
+  const dailyMin = weather.main.temp_min;
   const description = weather.weather[0].description;
   const windSpeed = weather.wind.speed;
 
@@ -33,6 +36,9 @@ function displayWeather(weather) {
   
     <h2>${city}, ${country}</h2>
     <p>Temperature: ${temp} &#8451;</p>
+    <p>Feels like: ${feelsLike} </p>
+    <p>Daily High: ${dailyMax}</p>
+    <p>Daily Low: ${dailyMin}</p>
     <p>Description: ${description}</p>
     <p>Wind Speed: ${windSpeed}</p>
   `;

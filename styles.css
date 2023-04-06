@@ -22,7 +22,7 @@ main{
     position: fixed;
     border: 1px black solid;
     width: 350px;
-    height: 450px;
+    height: 550px;
     display: none;
     padding: 10px;
     background-color: black;
@@ -46,6 +46,6 @@ input{
     text-align: center;
 }
 
-#search-btn{
-
+p{
+    font-size: 1.5rem;
 }
