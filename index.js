@@ -2,6 +2,7 @@ const form = document.querySelector("form");
 const cityInput = document.getElementById("city-input");
 const searchBtn = document.getElementById("search-btn");
 const weatherInfo = document.getElementById("weather-info");
+const weatherDiv = document.getElementById('weather-div')
 
 const apiKey = "7c70b1c4dd5f032dcc948ec4177c23aa"; // Replace with your own API key from OpenWeatherMap
 
@@ -12,6 +13,7 @@ function getWeather(city) {
     if (xhr.status === 200) {
       const weather = JSON.parse(xhr.responseText);
       displayWeather(weather);
+      console.log(weather)
     } else {
       console.error("Error fetching weather data");
     }
@@ -24,16 +26,20 @@ function displayWeather(weather) {
   const country = weather.sys.country;
   const temp = weather.main.temp;
   const description = weather.weather[0].description;
+  const windSpeed = weather.wind.speed;
+
 
   const weatherHTML = `
   
     <h2>${city}, ${country}</h2>
     <p>Temperature: ${temp} &#8451;</p>
     <p>Description: ${description}</p>
-    <button id="close-weather-info">X</button>
+    <p>Wind Speed: ${windSpeed}</p>
   `;
 
   weatherInfo.innerHTML = weatherHTML;
+
+  weatherDiv.style.display = 'block'
 }
 
 form.addEventListener("submit", function (event) {
@@ -42,3 +48,7 @@ form.addEventListener("submit", function (event) {
   getWeather(city);
 });
 
+
+document.getElementById('close-weather-info').addEventListener('click', function() {
+    weatherDiv.style.display = 'none'
+})
