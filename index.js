@@ -22,18 +22,18 @@ function getWeather(city) {
 }
 
 function displayWeather(weather) {
-  const city = weather.name;
-  const country = weather.sys.country;
-  const temp = weather.main.feels_like;
-  const feelsLike = weather.main.temp;
-  const dailyMax = weather.main.temp_max;
-  const dailyMin = weather.main.temp_min;
-  const description = weather.weather[0].description;
-  const windSpeed = weather.wind.speed;
+    const city = weather.name;
+    const country = weather.sys.country;
+    const temp = weather.main.feels_like;
+    const feelsLike = weather.main.temp;
+    const dailyMax = weather.main.temp_max;
+    const dailyMin = weather.main.temp_min;
+    const description = weather.weather[0].description;
+    const windSpeed = weather.wind.speed;
 
 
-  const weatherHTML = `
-  
+    const weatherHTML = `
+
     <h2>${city}, ${country}</h2>
     <p>Temperature: ${temp} &#8451;</p>
     <p>Feels like: ${feelsLike} </p>
@@ -41,11 +41,22 @@ function displayWeather(weather) {
     <p>Daily Low: ${dailyMin}</p>
     <p>Description: ${description}</p>
     <p>Wind Speed: ${windSpeed}</p>
-  `;
+    `;
 
-  weatherInfo.innerHTML = weatherHTML;
+    weatherInfo.innerHTML = weatherHTML;
+    weatherDiv.style.display = 'block'
 
-  weatherDiv.style.display = 'block'
+    if (description === "broken clouds") {
+    weatherDiv.style.backgroundImage = 'url(images/brokenclouds.jpg)';
+    } else if (description === "overcast clouds") {
+    weatherDiv.style.backgroundImage = 'url(images/overcastclouds.webp)';
+    } else if (description === "clear sky") {
+    weatherDiv.style.backgroundImage = 'url(images/clearsky.jpg)';
+    } else if (description === "scattered clouds") {
+    weatherDiv.style.backgroundImage = 'url(images/scatteredclouds.jpg)';
+    } else if (description === "few clouds") {
+    weatherDiv.style.backgroundImage = 'url(images/fewclouds.jpg)';
+    }
 }
 
 form.addEventListener("submit", function (event) {
