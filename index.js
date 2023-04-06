@@ -26,9 +26,11 @@ function displayWeather(weather) {
   const description = weather.weather[0].description;
 
   const weatherHTML = `
+  
     <h2>${city}, ${country}</h2>
     <p>Temperature: ${temp} &#8451;</p>
     <p>Description: ${description}</p>
+    <button id="close-weather-info">X</button>
   `;
 
   weatherInfo.innerHTML = weatherHTML;

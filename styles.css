@@ -1,0 +1,27 @@
+body{
+    text-align: center;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: -50px 0px;
+}
+
+#weather-info{
+    position: relative;
+    bottom: 75pxpx;
+    border: 1px black solid;
+    width: 350px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 10px;
+    font-size: 2rem;
+}
